@@ -53,7 +53,7 @@ iot_sk_update_gwid() {
     else
         # get gateway ID from its MAC address
         GWID_PREFIX="FFFE"
-        GWID=$(ip link show eth0 | awk '/ether/ {print $2}' | awk -F\: '{print $1$2$3$4$5$6}')
+        GWID=$(ip link show wlan0 | awk '/ether/ {print $2}' | awk -F\: '{print $1$2$3$4$5$6}')
 
         # replace last 8 digits of default gateway ID by actual GWID, in given JSON configuration file
         sed -i 's/\(^\s*"gateway_ID":\s*"\).\{16\}"\s*\(,\?\).*$/\1'${GWID_PREFIX}${GWID}'"\2/' $1

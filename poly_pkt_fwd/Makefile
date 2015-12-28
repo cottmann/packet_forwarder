@@ -36,7 +36,7 @@ LGW_INC += $(LGW_PATH)/inc/loragw_gps.h
 ### Linking options
 
 ifeq ($(CFG_SPI),native)
-  LIBS := -lloragw -lrt -lpthread
+  LIBS := -lloragw -lrt -lpthread -lwiringPi
 else ifeq ($(CFG_SPI),ftdi)
   LIBS := -lloragw -lrt -lpthread -lmpsse
 else ifeq ($(CFG_SPI),mac)
